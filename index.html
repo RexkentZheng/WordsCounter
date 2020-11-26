@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简单计数器</title>
+  <link rel="icon" href="https://i.postimg.cc/BZMYrJ8C/counter.png" type="image/x-icon"/>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    #app {
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+      align-items: center;
+      margin-top: 50px;
+    }
+    .input {
+      width: 200px;
+    }
+    .red {
+      color: brown;
+    }
+    .green {
+      color:cadetblue;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" class="wrapper">
+    <textarea name="main" class="input" cols="30" rows="4" v-model="words"></textarea>
+    <p>当前字数： <span v-bind:class="{ red: words.length > 90, green: words.length > 30 && words.length <= 90 }">{{words.length}}</span></p>
+  </div>
+</body>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    words: ''
+  }
+})
+</script>
+</html>
